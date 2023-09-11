@@ -22,7 +22,17 @@ struct URLS: Codable {
     let full: String
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDataSource {
+    
+    let layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = 5
+        return layout
+    }()
+    
+    var collectionView: UICollectionView?
     
     let urlString = "https://api.unsplash.com/search/photos?page=1&per_page=30&query=office&client_id=2rhIwZpbY0sT_eX-_qRTkX4ED2zRmDZvw5JB8X77hQY"
 
@@ -30,7 +40,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createCollectionView()
         fetchPhotos()
+    }
+    
+    func createCollectionView() {
+        layout.itemSize = CGSize(width: view.frame.width/2 - 2.5, height: view.frame.width/2 - 2.5)
+        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView?.dataSource = self
+        collectionView?.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "imageCell")
+        collectionView?.frame = view.bounds
+        
+        view.addSubview(collectionView!)
     }
     
     func fetchPhotos() {
@@ -42,6 +64,7 @@ class ViewController: UIViewController {
                 let jsonResult = try JSONDecoder().decode(APIResponse.self, from: data)
                 DispatchQueue.main.async {
                     self?.results = jsonResult.results
+                    self?.collectionView?.reloadData()
                     print(jsonResult.results.count)
                 }
             } catch {
@@ -52,5 +75,15 @@ class ViewController: UIViewController {
     }
 
 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return results.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
+        let imageURLString = results[indexPath.row].urls.full
+        cell.configure(imageURLString)
+        return cell
+    }
 }
 
