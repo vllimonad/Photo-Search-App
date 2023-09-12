@@ -14,6 +14,7 @@
 		2BF176272AAE3F6100C6AFD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF176262AAE3F6100C6AFD3 /* Assets.xcassets */; };
 		2BF1762A2AAE3F6100C6AFD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF176282AAE3F6100C6AFD3 /* LaunchScreen.storyboard */; };
 		2BF176342AAF937A00C6AFD3 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF176332AAF937A00C6AFD3 /* ImageCollectionViewCell.swift */; };
+		2BF176382AAFB15A00C6AFD3 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF176372AAFB15A00C6AFD3 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2BF176292AAE3F6100C6AFD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BF1762B2AAE3F6100C6AFD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BF176332AAF937A00C6AFD3 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BF176372AAFB15A00C6AFD3 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				2BF1761F2AAE3F5F00C6AFD3 /* SceneDelegate.swift */,
 				2BF176212AAE3F5F00C6AFD3 /* ViewController.swift */,
 				2BF176332AAF937A00C6AFD3 /* ImageCollectionViewCell.swift */,
+				2BF176372AAFB15A00C6AFD3 /* ImageViewController.swift */,
 				2BF176232AAE3F5F00C6AFD3 /* Main.storyboard */,
 				2BF176262AAE3F6100C6AFD3 /* Assets.xcassets */,
 				2BF176282AAE3F6100C6AFD3 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				2BF176222AAE3F5F00C6AFD3 /* ViewController.swift in Sources */,
 				2BF1761E2AAE3F5F00C6AFD3 /* AppDelegate.swift in Sources */,
+				2BF176382AAFB15A00C6AFD3 /* ImageViewController.swift in Sources */,
 				2BF176342AAF937A00C6AFD3 /* ImageCollectionViewCell.swift in Sources */,
 				2BF176202AAE3F5F00C6AFD3 /* SceneDelegate.swift in Sources */,
 			);

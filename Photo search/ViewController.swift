@@ -22,7 +22,7 @@ struct URLS: Codable {
     let regular: String
 }
 
-class ViewController: UIViewController, UICollectionViewDataSource, UISearchBarDelegate {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     var collectionView: UICollectionView?
     let searchBar = UISearchBar()
@@ -47,6 +47,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UISearchBarD
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView?.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "imageCell")
         collectionView?.dataSource = self
+        collectionView?.delegate = self
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         searchBar.delegate = self
         searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -106,6 +107,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UISearchBarD
         let imageURLString = results[indexPath.row].urls.regular
         cell.configure(imageURLString)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = ImageViewController()
+        let imageURLString = results[indexPath.row].urls.regular
+        viewController.configure(imageURLString)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
