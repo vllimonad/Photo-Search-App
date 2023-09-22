@@ -7,21 +7,6 @@
 
 import UIKit
 
-struct APIResponse: Codable {
-    let total: Int
-    let total_pages: Int
-    let results: [Result]
-}
-
-struct Result: Codable {
-    let id: String
-    let urls: URLS
-}
-
-struct URLS: Codable {
-    let regular: String
-}
-
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     var collectionView: UICollectionView?
@@ -37,6 +22,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Photo Finder"
         addSubviews()
         setupLayout()
     }
@@ -49,8 +35,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView?.dataSource = self
         collectionView?.delegate = self
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
+        
         searchBar.delegate = self
         searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.placeholder = "Ocean"
         
         view.addSubview(searchBar)
         view.addSubview(collectionView!)
@@ -88,7 +76,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 DispatchQueue.main.async {
                     self?.results = jsonResult.results
                     self?.collectionView?.reloadData()
-                    print(jsonResult.results.count)
                 }
             } catch {
                 print("error")

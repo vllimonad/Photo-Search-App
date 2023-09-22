@@ -17,9 +17,7 @@ class ImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share))
-        
         view.backgroundColor = .white
         imageView.frame = view.bounds
         view.addSubview(imageView)
