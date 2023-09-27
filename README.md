@@ -7,9 +7,8 @@ Photo Search Application is an iOS application for searching and downloading hig
 
 ### Technologies
 1. JSON
-2. UserDefaults
-3. REST
-4. URLSession
-5. GCD
+2. REST
+3. URLSession
+4. GCD
 
 All photos are imported from [Unsplash API](https://unsplash.com/developers).
